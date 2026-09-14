@@ -19,6 +19,11 @@ void main() {
 
     }
 
+    for(int i=0; i<10; i++){
+        IO.println(i);
+
+    }
+
 
     IO.println("lol");
     IO.println(nome);

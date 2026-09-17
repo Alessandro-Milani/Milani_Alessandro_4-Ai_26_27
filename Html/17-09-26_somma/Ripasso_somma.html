@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somma</title>
+</head>
+<body style="text-align: center; background-image:url(matematica-sfondo-vettoriale-fwhp4e.jpg);">
+    <div style="background-color: azure; border-radius: 10px;">
+        <h1> <b>Somma di 2 numeri</b>  </h1>
+        <input type="number" id="numero1" placeholder="Primo Numero"> 
+        <h2>+</h2>
+        <input type="number" id="numero2" placeholder="Secondo Numero">
+        <button type="button" onclick="Calcola()">Calcola</button>
+        <h3 id="risultato">Non hai scritto nessun numero</h3>
+    </div>
+
+    <script>
+        function Calcola() {
+        // Prendiamo le stringhe originali scritte dall'utente
+        let stringa1 = document.getElementById("numero1").value;
+        let stringa2 = document.getElementById("numero2").value;
+
+        // Controlliamo se una delle due stringhe è vuota
+        if (stringa1 === "" || stringa2 === "") {
+            document.getElementById("risultato").innerText = "Input non corretto (inserisci entrambi i numeri)";
+        } 
+        else {
+            // Convertiamo in numeri ed eseguiamo la somma solo se i dati ci sono
+            let valore1 = Number(stringa1);
+            let valore2 = Number(stringa2);
+            let somma = valore1 + valore2;
+            
+            document.getElementById("risultato").innerText = "Il risultato è: " + somma;
+        }
+        }
+    </script>
+</body>
+</html>

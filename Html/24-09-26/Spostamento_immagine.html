@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sposta Immagine</title>
+</head>
+
+<body style="text-align: center;">
+    
+    <!-- Immagine con coordinate iniziali -->
+    <img src="images.jpg" alt="Immagine" id="immagine" style="position: absolute; left: 50px; top: 50px;" height="200">
+    
+    <!-- Pannello di controllo -->
+    <div class="controlli">
+        <button class="pulsante_su" onclick="Sposta_su()">Su</button>
+        <div>
+            <button class="pulsante_sinistra" onclick="Sposta_sinistra()">Sinistra</button>
+            <button class="pulsante_reset" onclick="Reset_immagine()">Reset</button>
+            <button class="pulsante_destra" onclick="Sposta_destra()">Destra</button>
+        </div>
+        <button class="pulsante_giu" onclick="Sposta_giu()">Giù</button>
+    </div>
+
+    <style>
+        .controlli {
+            display: inline-grid;
+            gap: 4px;
+            margin-top: 300px; /* Spostati in basso per non sovrapporsi all'immagine */
+            text-align: center;
+        }
+
+        .controlli > button {
+            justify-self: center;
+        }
+
+        /* Stili comuni per i pulsanti direzione */
+        .pulsante_su, .pulsante_sinistra, .pulsante_destra, .pulsante_giu {
+            position: relative;
+            background: #007BFF;
+            color: white;
+            padding: 15px 20px; /* Padding bilanciato per centrare il testo */
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .pulsante_su:hover, .pulsante_sinistra:hover, .pulsante_destra:hover, .pulsante_giu:hover {
+            background: #0056b3;
+        }
+
+        .pulsante_su {
+            clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0 100%, 0% 30%);
+            padding-top: 20px;
+        }
+
+        .pulsante_sinistra {
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 30% 100%, 0% 50%);
+            padding-left: 25px;
+        }
+
+        .pulsante_destra {
+            clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%);
+            padding-right: 25px;
+        }
+
+        .pulsante_giu {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+            padding-bottom: 20px;
+        }
+
+        .pulsante_reset {
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .pulsante_reset:hover {
+            background: #218838;
+        }
+    </style>
+
+    <script>
+        // Usiamo offsetLeft e offsetTop per leggere la posizione reale corrente del pixel
+        function Sposta_su() {
+            var img = document.getElementById("immagine");
+            img.style.top = (img.offsetTop - 10) + "px";
+        }
+
+        function Sposta_sinistra() {
+            var img = document.getElementById("immagine");
+            img.style.left = (img.offsetLeft - 10) + "px";
+        }
+
+        function Sposta_destra() {
+            var img = document.getElementById("immagine");
+            img.style.left = (img.offsetLeft + 10) + "px";
+        }
+
+        function Sposta_giu() {
+            var img = document.getElementById("immagine");
+            img.style.top = (img.offsetTop + 10) + "px";
+        }
+
+        function Reset_immagine() {
+            var img = document.getElementById("immagine");
+            img.style.left = '50px';
+            img.style.top = '50px';
+        }
+    </script>
+
+</body>
+</html>

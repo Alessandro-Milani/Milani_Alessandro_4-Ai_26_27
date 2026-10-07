@@ -118,20 +118,6 @@ public class Main {
                 int resto = totale - prezzo;
                 IO.println("Il tuo resto è di: " + resto + " cent.");
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         } while (selezione < 1 || selezione > lunghezzaLista);
     }
 }
